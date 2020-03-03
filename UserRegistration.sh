@@ -6,7 +6,7 @@ echo "*************************User Registration*************************"
 function validateFirstName(){
 	local pattern="^[A-Z][a-z]{2,}$"
 	read -p "Enter a first name: " firstName
-	if [[ $firstName =~ $pattern ]]
+	if [[ $firstName =~ $pattern1 ]]
 	then
 		echo "Valid"
 	else
@@ -38,7 +38,20 @@ function validateEmail(){
 	fi
 }
 
+# VALIDATION OF MOBILE FORMAT
+function mobileFormat(){
+	local pattern="^[0-9]{2}[ ][0-9]{3}$"
+	read -p "Enter: " mobileNumber
+	if [[ $mobileNumber =~ $pattern ]]
+	then
+		echo "Valid"
+	else
+		echo "Not Valid"
+	fi
+}
+
 # CALL FUNCTION
 validateFirstName
 validateLastName
 validateEmail
+mobileFormat
