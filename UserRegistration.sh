@@ -28,8 +28,8 @@ function validateLastName(){
 
 # VALIDATION OF EMAIL ID
 function validateEmail(){
-	local pattern="^[a-z]{3}+.[a-zA-Z]{3,}+@[a-z]{2}+.[a-z]{2}+.[a-zA-Z]{2}$"
-	read -p "Enter: " email
+	local pattern="^[a-z]+.[a-zA-Z]*+@[a-z]+.[a-z]{0,4}?[a-z]{0,4}.[a-z]{2,4}$"
+	read -p "Enter mail: " email
 	if [[ $email =~ $pattern ]]
 	then
 		echo "Valid"
@@ -41,7 +41,7 @@ function validateEmail(){
 # VALIDATION OF MOBILE FORMAT
 function mobileFormat(){
 	local pattern="^[0-9]{2}[ ][0-9]{10}$"
-	read -p "Enter: " mobileNumber
+	read -p "Enter mobile format: " mobileNumber
 	if [[ $mobileNumber =~ $pattern ]]
 	then
 		echo "Valid"
@@ -53,7 +53,7 @@ function mobileFormat(){
 # VALIDATION OF PASSWORD RULE1
 function passwordRule1(){
 	local pattern="^[a-zA-Z0-9]{8,}$"
-	read -p "Enter: " passwordRule1
+	read -p "Enter for password rule1: " passwordRule1
 	if [[ $passwordRule1 =~ $pattern ]]
 	then
 		echo "Valid"
@@ -62,11 +62,11 @@ function passwordRule1(){
 	fi
 }
 
-# VALIDATION OF PASSWORD RULE
+# VALIDATION OF PASSWORD RULE2
 function passwordRule2(){
-	local pattern="^[A-Z]?[a-zA-Z0-9]{8,}$"
-	read -p "Enter: " passwordRule2
-	if [[ $passwordRule2 =~ $pattern ]]
+	local pattern="[A-Z][a-zA-Z0-9]*$"
+	read -p "Enter for password rule2: " passwordRule2
+	if [[ $passwordRule2 =~ $pattern && ${#passwordRule2} -ge 8 ]]
 	then
 		echo "Valid"
 	else
