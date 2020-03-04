@@ -6,7 +6,7 @@ echo "*************************User Registration*************************"
 function validateFirstName(){
 	local pattern="^[A-Z][a-z]{2,}$"
 	read -p "Enter a first name: " firstName
-	if [[ $firstName =~ $pattern1 ]]
+	if [[ $firstName =~ $pattern ]]
 	then
 		echo "Valid"
 	else
@@ -28,7 +28,7 @@ function validateLastName(){
 
 # VALIDATION OF EMAIL ID
 function validateEmail(){
-	local pattern="^[a-z]{3}+.[a-zA-Z]{3}+@[a-z]{2}+.[a-zA-Z]{2}$"
+	local pattern="^[a-z]{3}+.[a-zA-Z]{3,}+@[a-z]{2}+.[a-z]{2}+.[a-zA-Z]{2}$"
 	read -p "Enter: " email
 	if [[ $email =~ $pattern ]]
 	then
@@ -51,10 +51,22 @@ function mobileFormat(){
 }
 
 # VALIDATION OF PASSWORD RULE1
-function password(){
+function passwordRule1(){
 	local pattern="^[a-zA-Z0-9]{8,}$"
 	read -p "Enter: " passwordRule1
 	if [[ $passwordRule1 =~ $pattern ]]
+	then
+		echo "Valid"
+	else
+		echo "Not Valid"
+	fi
+}
+
+# VALIDATION OF PASSWORD RULE
+function passwordRule2(){
+	local pattern="^[A-Z]?[a-zA-Z0-9]{8,}$"
+	read -p "Enter: " passwordRule2
+	if [[ $passwordRule2 =~ $pattern ]]
 	then
 		echo "Valid"
 	else
@@ -67,4 +79,5 @@ validateFirstName
 validateLastName
 validateEmail
 mobileFormat
-password
+passwordRule1
+passwordRule2
