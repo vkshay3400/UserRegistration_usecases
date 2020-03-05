@@ -74,6 +74,18 @@ function passwordRule2(){
 	fi
 }
 
+# VALIDATION OF PASSWORD RULE3
+function passwordRule3(){
+	local pattern="^([a-z0-9]*[A-Z]+[a-zA-Z]*[0-9])|([0-9][a-zA-Z]*+[A-Z][a-z0-9]*)$"
+	read -p "Enter for password rule3: " passwordRule3
+	if [[ $passwordRule3 =~ $pattern && ${#passwordRule3} -ge 8 ]]
+	then
+		echo "Valid"
+	else
+		echo "Not Valid"
+	fi
+}
+
 # CALL FUNCTION
 validateFirstName
 validateLastName
@@ -81,3 +93,4 @@ validateEmail
 mobileFormat
 passwordRule1
 passwordRule2
+passwordRule3
