@@ -51,7 +51,7 @@ function mobileFormat(){
 }
 
 # VALIDATION OF PASSWORD RULE1
-function passwordRule1(){
+function passwordAny(){
 	local pattern="^[a-zA-Z0-9]{8,}$"
 	read -p "Enter for password rule1: " passwordRule1
 	if [[ $passwordRule1 =~ $pattern ]]
@@ -63,9 +63,9 @@ function passwordRule1(){
 }
 
 # VALIDATION OF PASSWORD RULE2
-function passwordRule2(){
+function passwordName(){
 	local pattern="[A-Z][a-zA-Z0-9]*$"
-	read -p "Enter for password rule2: " passwordRule2
+	read -p "Enter for password rule2: " passwordName
 	if [[ $passwordRule2 =~ $pattern && ${#passwordRule2} -ge 8 ]]
 	then
 		echo "Valid"
@@ -75,7 +75,7 @@ function passwordRule2(){
 }
 
 # VALIDATION OF PASSWORD RULE3
-function passwordRule3(){
+function passwordNumber(){
 	local pattern="^([a-z0-9]*[A-Z]+[a-zA-Z]*[0-9])|([0-9][a-zA-Z]*+[A-Z][a-z0-9]*)$"
 	read -p "Enter for password rule3: " passwordRule3
 	if [[ $passwordRule3 =~ $pattern && ${#passwordRule3} -ge 8 ]]
@@ -91,6 +91,6 @@ validateFirstName
 validateLastName
 validateEmail
 mobileFormat
-passwordRule1
-passwordRule2
-passwordRule3
+passwordAny
+passwordName
+passwordNumber
